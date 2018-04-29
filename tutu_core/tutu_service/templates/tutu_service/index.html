@@ -1,0 +1,36 @@
+{% block content %}
+    {% if auth %}
+        <div>
+            <div style="float:left">
+                <h1 style="color:blue">Tutu2 site</h1>
+                Добро пожаловать <font color="green">{{ user }}</font> !
+            </div>
+
+            <div style="float:right">
+                <a href="{% url 'tutu_service:logout'%}"><button>Выход</button></a>
+            </div>
+        </div>
+
+    {% else %}
+        <div>
+            <div style="float:left">
+                <h1 style="color:blue">Tutu2 site</h1>
+            </div>
+
+            <div style="float:right">
+
+                <form action="./login/" method="post">
+                  {% csrf_token %}
+                      <input type="submit" value="Войти" /><br>
+                      <input type="text" name="username" id="1"/>
+                      <label>Имя пользователя</label><br>
+
+                      <input type="text" name="password" id="2"/>
+                      <label>Пароль</label>
+                </form>
+
+                <a href="{% url 'tutu_service:register'%}"><button>Регистрация</button></a>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
