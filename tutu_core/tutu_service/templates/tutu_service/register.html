@@ -1,15 +1,27 @@
+{% load bootstrap3 %}
+<script src="{% bootstrap_jquery_url %}"></script>
+{% bootstrap_javascript %}
+{% bootstrap_css %}
 {% block content %}
-    <div style="margin:0 25% 0 25%; width:50%;">
+    <center>
+<div class="jumbotron" style="width:40%">
+
+<div style="margin:0 25% 0 25%; width:50%;">
     <form action="." method="post">
         {% csrf_token %}
-        <input type="text" name="name" id="1"/>
-        <label>Имя пользователя</label><br><br>
-
-        <input type="text" name="pwd" id="2"/>
-        <label>Пароль</label><br><br>
-
+        <div class="input-group input-group">
+            <span style="width:45%" class="input-group-addon">Имя пользователя</span>
+            <input type="text" class="form-control" placeholder="Имя пользователя" name="name">
+        </div><br>
+        <div class="input-group input-group">
+            <span style="width:45%"  class="input-group-addon">Пароль</span>
+            <input type="text" class="form-control" placeholder="Пароль" name="pwd">
+        </div>
+        <br>
         <input type="submit" value="Регистрация" />
     </form>
+        <a href="{% url 'tutu_service:index'%}"><button class="btn btn-info">Вернуться на главную</button></a>
     </div>
-
+</div>
+</center>
 {% endblock %}

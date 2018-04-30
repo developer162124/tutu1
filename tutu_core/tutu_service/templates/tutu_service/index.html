@@ -32,6 +32,7 @@
                             <h5 class="modal-title">Введите данные для авторизации</h5>
                         </div>
                         <div class="modal-body">
+                            <center>
                             <form action="./login/" method="post">{% csrf_token %}
                                 <div class="input-group input-group">
                                   <span style="width:45%" class="input-group-addon">Имя пользователя</span>
@@ -44,6 +45,7 @@
                                 <br>
                                 <input type="submit" class="btn btn-primary" value="Готово" />
                             </form>
+                            </center>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
