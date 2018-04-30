@@ -1,36 +1,88 @@
+{% load bootstrap3 %}
+<script src="{% bootstrap_jquery_url %}"></script>
+{% bootstrap_javascript %}
+{% bootstrap_css %}
 {% block content %}
     {% if auth %}
-        <div>
-            <div style="float:left">
-                <h1 style="color:blue">Tutu2 site</h1>
-                Добро пожаловать <font color="green">{{ user }}</font> !
+        <div class="panel panel-success">
+            <div class="panel-body">
+                <h1>Tutu site</h1>
             </div>
+            <div class="panel-footer">
+                <div style="float:right">
+                    <a href="{% url 'tutu_service:logout'%}"><button>Выход</button></a>
 
-            <div style="float:right">
-                <a href="{% url 'tutu_service:logout'%}"><button>Выход</button></a>
+                </div>
+                <h4 >Добро пожаловать <font color="green">{{ user }}</font> !</h4>
             </div>
         </div>
 
     {% else %}
-        <div>
-            <div style="float:left">
-                <h1 style="color:blue">Tutu2 site</h1>
+        <div class="panel panel-success">
+            <div class="panel-body">
+                <h1>Tutu site</h1>
             </div>
+            <div class="panel-footer">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Войти в систему</button>
 
-            <div style="float:right">
+                <div class="modal bd-example-modal-sm" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Введите данные для авторизации</h5>
+                        </div>
+                        <div class="modal-body">
+                            <form action="./login/" method="post">{% csrf_token %}
+                                <div class="input-group input-group">
+                                  <span style="width:45%" class="input-group-addon">Имя пользователя</span>
+                                  <input type="text" class="form-control" placeholder="Имя пользователя" name="username">
+                                </div><br>
+                                <div class="input-group input-group">
+                                  <span style="width:45%"  class="input-group-addon">Пароль</span>
+                                  <input type="text" class="form-control" placeholder="Пароль" name="password">
+                                </div>
+                                <br>
+                                <input type="submit" class="btn btn-primary" value="Готово" />
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
 
-                <form action="./login/" method="post">
-                  {% csrf_token %}
-                      <input type="submit" value="Войти" /><br>
-                      <input type="text" name="username" id="1"/>
-                      <label>Имя пользователя</label><br>
+                <!--<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">-->
+                    <!--<div class="modal-dialog modal-sm">-->
+                        <!--<div class="modal-content">-->
 
-                      <input type="text" name="password" id="2"/>
-                      <label>Пароль</label>
-                </form>
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
 
-                <a href="{% url 'tutu_service:register'%}"><button>Регистрация</button></a>
+                <a href="{% url 'tutu_service:register'%}"><button class="btn btn-info">Регистрация</button></a>
             </div>
         </div>
     {% endif %}
+    <div class="panel panel-info">
+      <div class="panel-body">
+        <ul style="float:right" class="nav nav-pills">
+            <li class="active"><a href="#">Главная</a></li>
+            <li><a href="#">Бытовые товары</a></li>
+            <li><a href="#">Игрушки</a></li>
+            <li><a href="#">Парфюм</a></li>
+            <li><a href="#">Сувениры</a></li>
+        </ul>
+      </div>
+    </div>
+<center>
+<div class="jumbotron" style="width:40%">
+
+<p>Добрый день, вы находитесь на сайте товаров которые вы могли видеть в электропоезде, метро, или может быть мы зашли к вам на работу, офис, или же встретились на улице.</p>
+<p>Вы знаете наших диллеров и продавцов, вы общались с ними, а возможно что-то уже приобрели. Но далеко не все можно унести на руках и показать вам при случайной встрече.
+    Ознакомтесь посредством видеороликов с ассортиментов наших товаров, которые могут являться крупногабаритным или неудобным для демонстрации.</p>
+<p>Мы с удовольствием принесем и продемонстрируем вам наш товар в удобном для вас месте!</p>
+
+</div>
+</center>
 {% endblock %}

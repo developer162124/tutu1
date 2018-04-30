@@ -1,5 +1,4 @@
 from django.contrib import auth
-from django.core.mail import send_mail
 from django.core.urlresolvers import reverse
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
@@ -41,3 +40,8 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect(reverse('tutu_service:index'))
+
+
+def products(request):
+    context = {}
+    return render(request, "tutu_service/products.html", context)
