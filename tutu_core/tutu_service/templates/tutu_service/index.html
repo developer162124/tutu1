@@ -53,6 +53,34 @@
                         </div>
                     </div>
                 </div>
+                <a href="{% url 'tutu_service:register'%}"><button class="btn btn-info">Регистрация</button></a>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".kurnikova">Курникова</button>
+                <div class="modal kurnikova" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Ну и чё молчат все???</h5>
+                        </div>
+
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-push-modal-sm">Пушкин</button>
+                <div class="modal bd-push-modal-sm" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Хватит меня толкать !!!!!!!!</h5>
+                        </div>
+
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                        </div>
+                </div>
+                    </div>
 
                 <!--<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">-->
                     <!--<div class="modal-dialog modal-sm">-->
@@ -62,7 +90,7 @@
                     <!--</div>-->
                 <!--</div>-->
 
-                <a href="{% url 'tutu_service:register'%}"><button class="btn btn-info">Регистрация</button></a>
+
             </div>
         </div>
     {% endif %}
